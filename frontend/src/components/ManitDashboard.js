@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import getApiBaseUrl from '../utils/getApiBaseUrl';
 
 const ManitDashboard = ({ setIsLoggedIn, showPage }) => {
   const [data, setData] = useState(null);
@@ -19,7 +20,7 @@ const ManitDashboard = ({ setIsLoggedIn, showPage }) => {
   const loadManitData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8000/manit/data/', {
+      const response = await axios.get(`${getApiBaseUrl()}/manit/data/`, {
         headers: getAuthHeaders()
       });
       setData(response.data);
@@ -65,7 +66,7 @@ const ManitDashboard = ({ setIsLoggedIn, showPage }) => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/manit/upload/', formData, {
+      const response = await axios.post(`${getApiBaseUrl()}/manit/upload/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           ...getAuthHeaders()
@@ -93,7 +94,7 @@ const ManitDashboard = ({ setIsLoggedIn, showPage }) => {
       console.log(`Attempting to update transaction ${transactionId} to ${status}`);
       
       // Proper API call with correct endpoint
-      const response = await axios.post('http://localhost:8000/manit/update-status/', {
+      const response = await axios.post(`${getApiBaseUrl()}/manit/update-status/`, {
         transaction_id: transactionId,
         status: status
       }, {
@@ -198,7 +199,7 @@ const ManitDashboard = ({ setIsLoggedIn, showPage }) => {
           alert(`❌ Error updating transaction status (${status_code}): ${message}`);
         }
       } else if (error.request) {
-        alert('❌ Cannot connect to server. Please check if the backend is running.');
+        alert(`❌ Cannot connect to server. Please ensure the backend is running and accessible at: ${getApiBaseUrl()}`);
       } else {
         alert(`❌ Error: ${error.message}`);
       }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import NetworkGraph from './NetworkGraph';
+import getApiBaseUrl from '../utils/getApiBaseUrl';
 
 const Dashboard = ({ data, setData }) => {
   const [loading, setLoading] = useState(false);
@@ -24,11 +25,11 @@ const Dashboard = ({ data, setData }) => {
 
     try {
       console.log('Checking backend connection...');
-      const healthCheck = await axios.get('http://localhost:8000/');
+      const healthCheck = await axios.get(`${getApiBaseUrl()}/`);
       console.log('Backend is running:', healthCheck.data);
 
       console.log('Uploading file:', file.name);
-      const response = await axios.post('http://localhost:8000/detect-public/', formData, {
+      const response = await axios.post(`${getApiBaseUrl()}/detect-public/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -43,7 +44,7 @@ const Dashboard = ({ data, setData }) => {
       setLoading(false);
       
       if (error.code === 'ECONNREFUSED' || error.message.includes('Network Error')) {
-        alert('❌ Cannot connect to backend server!\n\nPlease ensure:\n1. Backend is running: python main.py\n2. Backend is on port 8000\n3. No firewall blocking the connection');
+        alert(`❌ Cannot connect to backend server!\n\nPlease ensure the backend is running and accessible at: ${getApiBaseUrl()}`);
       } else if (error.response) {
         const status = error.response.status;
         const message = error.response.data?.detail || error.response.statusText;

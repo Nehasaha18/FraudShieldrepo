@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import getApiBaseUrl from '../utils/getApiBaseUrl';
 
 const ManitLogin = ({ setIsLoggedIn, showPage }) => {
   const [adminId, setAdminId] = useState('');
@@ -13,7 +14,7 @@ const ManitLogin = ({ setIsLoggedIn, showPage }) => {
     try {
       console.log('Attempting MANIT login with:', adminId);
       
-      const response = await axios.post('http://localhost:8000/admin/login/', {
+      const response = await axios.post(`${getApiBaseUrl()}/admin/login/`, {
         username: adminId,
         password: password,
         dashboard_type: 'manit'
@@ -49,7 +50,7 @@ const ManitLogin = ({ setIsLoggedIn, showPage }) => {
           alert(`❌ Login Error (${status})\n\n${message}`);
         }
       } else if (error.request) {
-        alert('❌ Cannot connect to server!\n\nPlease ensure the backend is running on port 8000.');
+        alert(`❌ Cannot connect to server!\n\nPlease ensure the backend is running and accessible at: ${getApiBaseUrl()}`);
       } else {
         alert(`❌ Login Error\n\n${error.message}`);
       }
