@@ -221,22 +221,24 @@ class ReportGenerator:
         else:
             header_data = [['', 'LOAN FEE VERIFICATION REPORT', '']]
         
-        header_table = Table(header_data, colWidths=[2*inch, 4*inch, 2*inch])
+        header_table = Table(header_data, colWidths=[2.5*inch, 3*inch, 2.5*inch])
         header_table.setStyle(TableStyle([
             ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
             ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
             ('FONTNAME', (1, 0), (1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE', (1, 0), (1, 0), 22),
+            ('FONTSIZE', (1, 0), (1, 0), 20),  # Reduced font size
             ('TEXTCOLOR', (1, 0), (1, 0), colors.HexColor('#1e3a8a')),
+            ('PADDING', (0, 0), (-1, -1), 15),  # Add padding around content
         ]))
         story.append(header_table)
-        story.append(Spacer(1, 0.5*inch))
+        story.append(Spacer(1, 0.8*inch))  # Increased spacing after header
         
-        # Institute details
+        # Institute details with better spacing
         story.append(Paragraph("Maulana Azad National Institute of Technology", self.styles['MANITTitle']))
+        story.append(Spacer(1, 0.2*inch))  # Add spacing after main title
         story.append(Paragraph("Bhopal, Madhya Pradesh", self.styles['Normal']))
         story.append(Paragraph("Student Loan Fee Verification System", self.styles['CBSubtitle']))
-        story.append(Spacer(1, 0.3*inch))
+        story.append(Spacer(1, 0.5*inch))  # Increased spacing before summary
         
         # Summary statistics with blue theme
         summary_data = [

@@ -255,12 +255,13 @@ class OAuth2Handler:
         # Default credentials for demo
         valid_credentials = {
             'centralbank': {'username': 'centralbank', 'password': 'admin123', 'role': 'centralbank_admin'},
-            'manit': {'username': 'manit', 'password': 'bhopal123', 'role': 'manit_admin'}
+            'manit': {'username': 'manit', 'password': 'bhopal123', 'role': 'manit_admin'},
+            'sahaneha1809@gmail.com': {'username': 'sahaneha1809@gmail.com', 'password': 'admin123', 'role': 'centralbank_admin'}
         }
         
-        if dashboard_type in valid_credentials:
-            creds = valid_credentials[dashboard_type]
-            if username == creds['username'] and password == creds['password']:
+        if username in valid_credentials:
+            creds = valid_credentials[username]
+            if password == creds['password']:
                 return {
                     'username': username,
                     'role': creds['role'],

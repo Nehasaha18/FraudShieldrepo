@@ -16,13 +16,26 @@ class RBACManager:
                 # Get current user from kwargs
                 current_user = kwargs.get('current_user')
                 if not current_user:
-                    raise HTTPException(
-                        status_code=status.HTTP_401_UNAUTHORIZED,
-                        detail="Authentication required"
-                    )
+                    # Try to get from the last argument if it's a dict
+                    for arg in args:
+                        if isinstance(arg, dict) and 'role' in arg:
+                            current_user = arg
+                            break
+                    
+                    if not current_user:
+                        raise HTTPException(
+                            status_code=status.HTTP_401_UNAUTHORIZED,
+                            detail="Authentication required"
+                        )
                 
                 # Check permission
                 user_role = current_user.get('role')
+                if not user_role:
+                    raise HTTPException(
+                        status_code=status.HTTP_401_UNAUTHORIZED,
+                        detail="Invalid user role"
+                    )
+                
                 if not self.security_manager.check_permission(user_role, permission):
                     raise HTTPException(
                         status_code=status.HTTP_403_FORBIDDEN,

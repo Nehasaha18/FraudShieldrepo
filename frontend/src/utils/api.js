@@ -1,6 +1,7 @@
 // API Configuration and Utilities
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
+
 // Token management
 const getToken = () => localStorage.getItem('authToken');
 const setToken = (token) => localStorage.setItem('authToken', token);
