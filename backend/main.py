@@ -40,10 +40,7 @@ rbac_manager = RBACManager(security_manager)
 anomaly_detector = AnomalyDetector()
 
 # Security Middleware
-app.add_middleware(
-    TrustedHostMiddleware,
-    allowed_hosts=["localhost", "127.0.0.1", "fraudshield.com"]
-)
+
 
 # CORS middleware with security
 app.add_middleware(
