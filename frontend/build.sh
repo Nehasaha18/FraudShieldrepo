@@ -4,12 +4,9 @@
 set -e
 
 echo "🔧 Installing dependencies..."
-npm install --legacy-peer-deps
-
-echo "🔒 Fixing vulnerabilities..."
-npm audit fix --force || true
+yarn install
 
 echo "🏗️ Building application..."
-CI=false npm run build
+yarn build
 
 echo "✅ Build completed successfully!" 
