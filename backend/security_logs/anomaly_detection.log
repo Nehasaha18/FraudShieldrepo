@@ -1,0 +1,47 @@
+2025-07-19 15:54:20,210 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 15:54:20,214 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 16:08:27,874 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\sahan\Desktop\radheradhe\FraudShield\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-07-19 16:08:44,659 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\sahan\Desktop\radheradhe\FraudShield\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-07-19 16:11:20,445 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\sahan\Desktop\radheradhe\FraudShield\backend\venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-07-19 16:13:00,359 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 16:13:00,362 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 16:13:52,245 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 16:13:52,246 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
+2025-07-19 16:16:42,838 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 16:16:42,842 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 16:18:28,899 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 16:18:28,899 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
+2025-07-19 18:52:57,920 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 18:52:57,927 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 18:53:55,981 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 18:53:55,982 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 18:58:18,104 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 18:58:18,105 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
+2025-07-19 19:38:53,274 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 19:38:53,288 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 19:44:09,806 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 19:44:09,807 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
+2025-07-19 20:54:13,167 - security - WARNING - Expired token verification attempt
+2025-07-19 20:59:02,812 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 20:59:02,823 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 21:01:00,324 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 21:01:00,325 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
+2025-07-19 22:24:26,602 - security - INFO - Successful login: centralbank from 127.0.0.1
+2025-07-19 22:24:26,609 - security - INFO - Access token created for user: centralbank from IP: 127.0.0.1
+2025-07-19 22:27:56,743 - security - INFO - Successful login: manit from 127.0.0.1
+2025-07-19 22:27:56,743 - security - INFO - Access token created for user: manit from IP: 127.0.0.1
