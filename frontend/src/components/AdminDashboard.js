@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NetworkGraph from './NetworkGraph';
+import getApiBaseUrl from '../utils/getApiBaseUrl';
 
 const AdminDashboard = ({ setIsLoggedIn, showPage }) => {
   const [data, setData] = useState(null);
@@ -19,7 +20,7 @@ const AdminDashboard = ({ setIsLoggedIn, showPage }) => {
   const loadBackendData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8000/admin/data/', {
+      const response = await axios.get(`${getApiBaseUrl()}/admin/data/`, {
         headers: getAuthHeaders()
       });
       setData(response.data);
@@ -57,7 +58,7 @@ const AdminDashboard = ({ setIsLoggedIn, showPage }) => {
       console.log(`Attempting to ${action} transaction: ${transactionId}`);
       
       // Proper API call with correct endpoint and headers
-      const response = await axios.post('http://localhost:8000/admin/transaction-action/', {
+      const response = await axios.post(`${getApiBaseUrl()}/admin/transaction-action/`, {
         transaction_id: transactionId,
         action: action
       }, {
@@ -133,7 +134,7 @@ const AdminDashboard = ({ setIsLoggedIn, showPage }) => {
           alert(`❌ Error updating transaction status (${status}): ${message}`);
         }
       } else if (error.request) {
-        alert('❌ Cannot connect to server. Please check if the backend is running.');
+        alert(`❌ Cannot connect to server. Please ensure the backend is running and accessible at: ${getApiBaseUrl()}`);
       } else {
         alert(`❌ Error: ${error.message}`);
       }

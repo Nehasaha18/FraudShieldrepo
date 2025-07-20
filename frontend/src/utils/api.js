@@ -1,5 +1,7 @@
 // API Configuration and Utilities
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+import getApiBaseUrl from './getApiBaseUrl';
+
+const API_BASE_URL = getApiBaseUrl();
 
 
 // Token management
