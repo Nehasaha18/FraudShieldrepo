@@ -2,7 +2,7 @@ services:
   - type: web
     name: fraudshield-frontend
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: yarn install && yarn build
     startCommand: npx serve -s build -l $PORT
     envVars:
       - key: REACT_APP_API_URL
