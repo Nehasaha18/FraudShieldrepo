@@ -606,10 +606,9 @@ if __name__ == "__main__":
     print("   Central Bank: username='centralbank', password='admin123'")
     print("   MANIT: username='manit', password='bhopal123'")
     print("   Your Email: username='sahaneha1809@gmail.com', password='admin123'")
+
+    # 🔧 Use dynamic port on Render (default to 8000 locally)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
     
-    # Run the application
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=8000
-    )
